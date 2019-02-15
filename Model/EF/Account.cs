@@ -28,7 +28,7 @@ namespace Model.EF
 
         public DateTime? DateOfBirth { get; set; }
 
-        public bool? Gender { get; set; }
+        public bool Gender { get; set; }
 
         public DateTime? CreatedTime { get; set; }
 
@@ -41,7 +41,7 @@ namespace Model.EF
         [StringLength(500)]
         public string Address { get; set; }
 
-        public bool? AccountStatus { get; set; }
+        public bool AccountStatus { get; set; }
 
         [StringLength(255)]
         public string Avatar { get; set; }

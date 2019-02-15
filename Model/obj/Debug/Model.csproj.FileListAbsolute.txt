@@ -22,3 +22,15 @@ E:\BDS\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 E:\BDS\Model\obj\Debug\Model.csproj.CopyComplete
 E:\BDS\Model\obj\Debug\Model.dll
 E:\BDS\Model\obj\Debug\Model.pdb
+F:\BDS\Model\bin\Debug\Model.dll.config
+F:\BDS\Model\bin\Debug\Model.dll
+F:\BDS\Model\bin\Debug\Model.pdb
+F:\BDS\Model\bin\Debug\EntityFramework.dll
+F:\BDS\Model\bin\Debug\EntityFramework.SqlServer.dll
+F:\BDS\Model\bin\Debug\EntityFramework.xml
+F:\BDS\Model\bin\Debug\EntityFramework.SqlServer.xml
+F:\BDS\Model\obj\Debug\Model.csprojAssemblyReference.cache
+F:\BDS\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+F:\BDS\Model\obj\Debug\Model.csproj.CopyComplete
+F:\BDS\Model\obj\Debug\Model.dll
+F:\BDS\Model\obj\Debug\Model.pdb

@@ -8,7 +8,7 @@ using Model.Dao;
 
 namespace BDS.Areas.Admin.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         // GET: Admin/ccount
         public ActionResult Index()
