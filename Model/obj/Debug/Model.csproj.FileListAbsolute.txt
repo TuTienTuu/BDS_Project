@@ -1,0 +1,12 @@
+C:\Users\tutie\source\repos\BDS\Model\bin\Debug\Model.dll.config
+C:\Users\tutie\source\repos\BDS\Model\bin\Debug\Model.dll
+C:\Users\tutie\source\repos\BDS\Model\bin\Debug\Model.pdb
+C:\Users\tutie\source\repos\BDS\Model\bin\Debug\EntityFramework.dll
+C:\Users\tutie\source\repos\BDS\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tutie\source\repos\BDS\Model\bin\Debug\EntityFramework.xml
+C:\Users\tutie\source\repos\BDS\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tutie\source\repos\BDS\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\tutie\source\repos\BDS\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\tutie\source\repos\BDS\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\tutie\source\repos\BDS\Model\obj\Debug\Model.dll
+C:\Users\tutie\source\repos\BDS\Model\obj\Debug\Model.pdb
