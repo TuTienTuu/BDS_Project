@@ -1,0 +1,4 @@
+﻿.validation-summary-errors.text-danger ul {
+    list-style: none;
+    margin-left: -40px;
+}

@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\UserDao.cs" />
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\DBModel.cs" />
     <Compile Include="EF\MenuLv1.cs" />
@@ -60,9 +61,7 @@
     <Compile Include="EF\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dao\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
