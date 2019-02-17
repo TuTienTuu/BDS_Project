@@ -17,12 +17,12 @@ namespace BDS.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult Login(LoginModel model)
+        public ActionResult Login(LoginModel model, Salt salt)
         {
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                var result = dao.Login(model.userName, Encryptor.SHA256(model.password + model.salt).ToString());
+                var result = dao.Login(model.userName, Encryptor.SHA256(model.password + salt).ToString());
                 if (result == 1)
                 {
                     var user = dao.GetById(model.userName);

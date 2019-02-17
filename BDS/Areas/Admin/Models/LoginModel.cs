@@ -17,6 +17,6 @@ namespace BDS.Areas.Admin.Models
 
         public bool remember { get; set; }
 
-        public string salt = "BDS";
+        //public string salt = "BDS";
     }
 }

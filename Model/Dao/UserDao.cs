@@ -7,23 +7,31 @@ using Model.EF;
 
 namespace Model.Dao
 {
-   public class UserDao
+    public class UserDao
     {
         DBModel db = null;
         public UserDao()
         {
             db = new DBModel();
         }
-        public string Insert(Account entity )
+        public string Insert(Account entity)
         {
             db.Accounts.Add(entity);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
             return entity.UserName;
         }
 
         public Account GetById(string userName)
         {
-            return db.Accounts.SingleOrDefault(x=>x.UserName ==  userName);
+            return db.Accounts.SingleOrDefault(x => x.UserName == userName);
         }
 
         public int Login(string userName, string password)
