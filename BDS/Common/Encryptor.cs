@@ -15,11 +15,6 @@ namespace BDS.Common
 
             UTF8Encoding objUtf8 = new UTF8Encoding();
             byte[] hashValue = sha256.ComputeHash(objUtf8.GetBytes(str));
-            //StringBuilder hashResult = new StringBuilder();
-            //for (int i = 0; i < str.Length; i++)
-            //{
-            //    hashResult.Append(hashValue[i].ToString());
-            //}
             return Convert.ToBase64String(hashValue).ToString();
         }
     }

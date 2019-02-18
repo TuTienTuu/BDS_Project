@@ -18,14 +18,14 @@
 
         [Key]
         [StringLength(255)]
-        [Display(Name ="Tên tài khoản")]
+        [Display(Name ="Tên tài khoản *")]
         public string UserName { get; set; }
 
-        [Display(Name = "Mật khẩu")]
+        [Display(Name = "Mật khẩu *")]
         [StringLength(255)]
         public string Password { get; set; }
 
-        [Display(Name = "Họ và tên")]
+        [Display(Name = "Họ và tên *")]
         [StringLength(255)]
         public string FullName { get; set; }
 
@@ -33,27 +33,28 @@
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? DateOfBirth { get; set; }
 
-        [Display(Name = "Giới tính")]
-        public bool Gender { get; set; }
+        [Display(Name = "Giới tính *")]
+        public bool? Gender { get; set; }
 
         [Display(Name = "Ngày tạo")]
-        public DateTime? CreatedTime { get; set; }
+        public DateTime CreatedTime { get; set; }
 
         [StringLength(255)]
+        [Display(Name = "Email *")]
         public string Email { get; set; }
 
-        [Display(Name = "Số điện thoại")]
+        [Display(Name = "Số điện thoại *")]
         [StringLength(20)]
         public string Mobi { get; set; }
 
-        [Display(Name = "Địa chỉ")]
+        [Display(Name = "Địa chỉ *")]
         [StringLength(500)]
         public string Address { get; set; }
 
         [Display(Name = "Trạng thái")]
         public bool AccountStatus { get; set; }
 
-        [Display(Name = "Ảnh đại diện")]
+        [Display(Name = "Ảnh đại diện *")]
         [StringLength(255)]
         public string Avatar { get; set; }
 

@@ -21,6 +21,7 @@ namespace BDS.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+               // string url = Request.UrlReferrer.ToString();
                 var dao = new UserDao();
                 var result = dao.Login(model.userName, Encryptor.SHA256(model.password + salt).ToString());
                 if (result == 1)
