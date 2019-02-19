@@ -27,7 +27,7 @@ namespace BDS.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Account account, Salt salt, string rePassword, HttpPostedFileBase file)
+        public ActionResult Create(Account account, Salt salt, string rePassword)
         {
             if (ModelState.IsValid)
             {
@@ -39,7 +39,7 @@ namespace BDS.Areas.Admin.Controllers
                     return View("Create");
 
                 //Xử lý dữ liệu
-                acc(account, salt, file);
+                acc(account, salt);
 
                 //Lưu dữ liệu
                 try
@@ -119,13 +119,6 @@ namespace BDS.Areas.Admin.Controllers
                 return false;
             }
 
-            //Kiểm tra Avatar(chưa xử lý lưu file)
-            if (string.IsNullOrEmpty(account.Avatar) || string.IsNullOrWhiteSpace(account.Avatar))
-            {
-                ModelState.AddModelError("", "Vui lòng chọn hình đại diện");
-                return false;
-            }
-
             //Kiểm tra Email
             if (string.IsNullOrEmpty(account.Email))
             {
@@ -157,7 +150,7 @@ namespace BDS.Areas.Admin.Controllers
             return true;
         }
 
-        public Account acc(Account account, Salt salt, HttpPostedFileBase file)
+        public Account acc(Account account, Salt salt)
         {
             //Mã hóa Password
             var encryptPassword = Encryptor.SHA256(account.Password + salt);
@@ -172,17 +165,24 @@ namespace BDS.Areas.Admin.Controllers
 
             //Kiểm tra hợp lệ Avatar
             string validAvatar = @"(.*?)\.(jpg|jpeg|png|gif)$";
-            string path;
-            if (file.ContentLength > 0)
-            {
-                string fileName = Path.GetFileName(file.FileName);
-                if (IsValidData(fileName,validAvatar))
-                {
-                    path = Path.Combine(Server.MapPath("~/Images/"), fileName);
-                    file.SaveAs(path);
-                }
-                IsValidData(fileName, validAvatar);
-            }
+            //Use Namespace called :  System.IO  
+            string FileName = Path.GetFileNameWithoutExtension(account.Avatar.FileName);
+
+            //To Get File Extension  
+            string FileExtension = Path.GetExtension(membervalues.ImageFile.FileName);
+
+            //Add Current Date To Attached File Name  
+            FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
+
+            //Get Upload path from Web.Config file AppSettings.  
+            string UploadPath = ConfigurationManager.AppSettings["UserImagePath"].ToString();
+
+            //Its Create complete path to store in server.  
+            membervalues.ImagePath = UploadPath + FileName;
+
+            //To copy and save file into server.  
+            membervalues.ImageFile.SaveAs(membervalues.ImagePath);
+
             if (IsValidData(account.Mobi, validAvatar) == false)
                 IsValidData(account.Mobi, validAvatar);
 
@@ -210,6 +210,32 @@ namespace BDS.Areas.Admin.Controllers
                 return false;
             }
             return true;
+        }
+
+        public int UpLoadAvatar(HttpPostedFileBase file)
+        {
+            string validAvatar = @"(.*?)\.(jpg|jpeg|png|gif)$";
+            string path;
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    string fileName = Path.GetFileName(file.FileName);
+                    if (IsValidData(fileName, validAvatar))
+                    {
+                        path = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                        file.SaveAs(path);
+                    }
+                    IsValidData(fileName, validAvatar);
+                    return 1;
+                }
+                return 0;
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "Vui lòng chọn hình ảnh để lưu");
+                return 0;
+            }
         }
     }
 }
