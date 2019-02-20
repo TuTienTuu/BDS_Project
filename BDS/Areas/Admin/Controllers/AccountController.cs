@@ -9,6 +9,7 @@ using BDS.Common;
 using BDS.Areas.Admin.Models;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Configuration;
 
 namespace BDS.Areas.Admin.Controllers
 {
@@ -27,7 +28,7 @@ namespace BDS.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Account account, Salt salt, string rePassword)
+        public ActionResult Create(AccountModel account, Salt salt, string rePassword)
         {
             if (ModelState.IsValid)
             {
@@ -39,12 +40,72 @@ namespace BDS.Areas.Admin.Controllers
                     return View("Create");
 
                 //Xử lý dữ liệu
-                acc(account, salt);
+                //Mã hóa Password
+                var encryptPassword = Encryptor.SHA256(account.Password + salt);
+
+                //Format DateOfBirth
+                var dateOfBirth = Convert.ToDateTime(account.DateOfBirth);
+
+                //Kiểm tra hợp lệ Email
+                string validEmail = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+                if (IsValidData(account.Mobi, validEmail) == false)
+                    IsValidData(account.Mobi, validEmail);
+
+                //Kiểm tra hợp lệ Avatar\\\\\\\\\
+                string validAvatar = @"(.*?)\.(jpg|jpeg|png|gif)$";
+
+                //Use Namespace called :  System.IO  
+                string FileName = Path.GetFileNameWithoutExtension(account.ImageFile.FileName);
+
+                //To Get File Extension  
+                string FileExtension = Path.GetExtension(account.ImageFile.FileName);
+
+                //Add Current Date To Attached File Name  
+                FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
+
+                //Get Upload path from Web.Config file AppSettings.  
+                string UploadPath = ConfigurationManager.AppSettings["UserImagePath"].ToString();
+
+                //Its Create complete path to store in server.  
+                string upload = UploadPath + FileName;
+
+                //To copy and save file into server.  
+                 account.ImageFile.SaveAs(upload);
+
+                if (IsValidData(account.Mobi, validAvatar) == false)
+                    IsValidData(account.Mobi, validAvatar);
+
+                //Kiểm tra hợp lệ Mobi
+                string validMobi = @"(.*?)\.(jpg|jpeg|png|gif)$";
+                if (IsValidData(account.Mobi, validMobi) == false)
+                    IsValidData(account.Mobi, validMobi);
+
+                //Gán các giá trị đã xử lý
+                account.Password = encryptPassword;
+                account.DateOfBirth = dateOfBirth;
+                account.CreatedTime = DateTime.Now;
+                account.AccountStatus = true;
+
+
+                //Chuyển sang Account để lưu vào DB
+                Account acc = new Account();
+                acc.UserName = account.UserName;
+                acc.Password = account.Password;
+                acc.FullName = account.FullName;
+                acc.Gender = account.Gender;
+                acc.Address = account.Address;
+                acc.DateOfBirth = account.DateOfBirth;
+                acc.Email = account.Email;
+                acc.Mobi = account.Mobi;
+                acc.Avatar = account.Avatar;
+                acc.AccountStatus = account.AccountStatus;
+                acc.CreatedTime = account.CreatedTime;
 
                 //Lưu dữ liệu
                 try
                 {
-                    dao.Insert(account);
+
+                    dao.Insert(acc);
                 }
                 catch (Exception ex)
                 {
@@ -76,7 +137,7 @@ namespace BDS.Areas.Admin.Controllers
             return View("Index");
         }
 
-        public bool CheckValue(Account account,string rePassword)
+        public bool CheckValue(AccountModel account,string rePassword)
         {
             //Kiểm tra tài khoản tồn tại chưa?
             if (string.IsNullOrEmpty(account.UserName) || string.IsNullOrWhiteSpace(account.UserName))
@@ -109,7 +170,7 @@ namespace BDS.Areas.Admin.Controllers
             if (account.FullName == null)
             {
                 account.FullName = string.Empty;
-                return false;
+                return true;
             }
 
             //Kiểm tra DateOfBirth
@@ -129,15 +190,15 @@ namespace BDS.Areas.Admin.Controllers
             //Kiểm tra Mobi
             if (string.IsNullOrEmpty(account.Mobi))
             {
-                ModelState.AddModelError("", "Vui lòng nhập Số điện thoại");
-                return false;
+                account.FullName = string.Empty;
+                return true;
             }
 
             //Kiểm tra Address
             if (string.IsNullOrEmpty(account.Address))
             {
-                ModelState.AddModelError("", "Vui lòng nhập Địa chỉ");
-                return false;
+                account.FullName = string.Empty;
+                return true;
             }
 
             //Kiểm tra Gender
@@ -148,56 +209,6 @@ namespace BDS.Areas.Admin.Controllers
             }
 
             return true;
-        }
-
-        public Account acc(Account account, Salt salt)
-        {
-            //Mã hóa Password
-            var encryptPassword = Encryptor.SHA256(account.Password + salt);
-
-            //Format DateOfBirth
-            var dateOfBirth = Convert.ToDateTime(account.DateOfBirth);
-
-            //Kiểm tra hợp lệ Email
-            string validEmail = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
-            if (IsValidData(account.Mobi, validEmail) == false)
-                IsValidData(account.Mobi, validEmail);
-
-            //Kiểm tra hợp lệ Avatar
-            string validAvatar = @"(.*?)\.(jpg|jpeg|png|gif)$";
-            //Use Namespace called :  System.IO  
-            string FileName = Path.GetFileNameWithoutExtension(account.Avatar.FileName);
-
-            //To Get File Extension  
-            string FileExtension = Path.GetExtension(membervalues.ImageFile.FileName);
-
-            //Add Current Date To Attached File Name  
-            FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
-
-            //Get Upload path from Web.Config file AppSettings.  
-            string UploadPath = ConfigurationManager.AppSettings["UserImagePath"].ToString();
-
-            //Its Create complete path to store in server.  
-            membervalues.ImagePath = UploadPath + FileName;
-
-            //To copy and save file into server.  
-            membervalues.ImageFile.SaveAs(membervalues.ImagePath);
-
-            if (IsValidData(account.Mobi, validAvatar) == false)
-                IsValidData(account.Mobi, validAvatar);
-
-            //Kiểm tra hợp lệ Mobi
-            string validMobi = @"(.*?)\.(jpg|jpeg|png|gif)$";
-            if (IsValidData(account.Mobi, validMobi) == false)
-                IsValidData(account.Mobi, validMobi);
-
-            //Gán các giá trị đã xử lý
-            account.Password = encryptPassword;
-            account.DateOfBirth = dateOfBirth;
-            account.CreatedTime = DateTime.Now;
-            account.AccountStatus = true;
-
-            return account;
         }
 
         public bool IsValidData(string inputValue, string validRegex)
@@ -212,30 +223,5 @@ namespace BDS.Areas.Admin.Controllers
             return true;
         }
 
-        public int UpLoadAvatar(HttpPostedFileBase file)
-        {
-            string validAvatar = @"(.*?)\.(jpg|jpeg|png|gif)$";
-            string path;
-            try
-            {
-                if (file.ContentLength > 0)
-                {
-                    string fileName = Path.GetFileName(file.FileName);
-                    if (IsValidData(fileName, validAvatar))
-                    {
-                        path = Path.Combine(Server.MapPath("~/Images/"), fileName);
-                        file.SaveAs(path);
-                    }
-                    IsValidData(fileName, validAvatar);
-                    return 1;
-                }
-                return 0;
-            }
-            catch (Exception)
-            {
-                ModelState.AddModelError("", "Vui lòng chọn hình ảnh để lưu");
-                return 0;
-            }
-        }
     }
 }

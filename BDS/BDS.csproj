@@ -252,8 +252,8 @@
     <Content Include="Areas\Admin\Views\Shared\_LeftMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -267,6 +267,7 @@
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Models\AccountModel.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Areas\Admin\Models\Salt.cs" />
     <Compile Include="Common\CommonConstants.cs" />
