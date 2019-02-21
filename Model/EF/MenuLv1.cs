@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -14,15 +14,18 @@ namespace Model.EF
             MenuLv2 = new HashSet<MenuLv2>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name ="Mã Menu")]
         public int MenuLv1ID { get; set; }
 
         [StringLength(255)]
+        [Display(Name = "Tên Menu Tiếng Việt")]
         public string MenuName_VN { get; set; }
 
-        public bool? Status { get; set; }
+        [Display(Name = "Trạng thái")]
+        public bool Status { get; set; }
 
         [StringLength(255)]
+        [Display(Name = "Tên Menu Tiếng Anh")]
         public string MenuName_EN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

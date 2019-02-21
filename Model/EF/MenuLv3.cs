@@ -8,7 +8,6 @@ namespace Model.EF
 
     public partial class MenuLv3
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MenuLv3ID { get; set; }
 
         [StringLength(255)]

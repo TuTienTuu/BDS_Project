@@ -14,7 +14,6 @@ namespace Model.EF
             MenuLv3 = new HashSet<MenuLv3>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MenuLv2ID { get; set; }
 
         [StringLength(255)]

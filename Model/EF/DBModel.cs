@@ -8,7 +8,7 @@ namespace Model.EF
     public partial class DBModel : DbContext
     {
         public DBModel()
-            : base("name=DBModel")
+            : base("name=DBModel1")
         {
         }
 

@@ -300,3 +300,7 @@ E:\BDS_New\BDS\obj\Debug\BDS.csproj.CoreCompileInputs.cache
 E:\BDS_New\BDS\obj\Debug\BDS.csproj.CopyComplete
 E:\BDS_New\BDS\obj\Debug\BDS.dll
 E:\BDS_New\BDS\obj\Debug\BDS.pdb
+E:\BDS_New\BDS\bin\PagedList.dll
+E:\BDS_New\BDS\bin\PagedList.Mvc.dll
+E:\BDS_New\BDS\bin\PagedList.xml
+E:\BDS_New\BDS\bin\PagedList.Mvc.xml

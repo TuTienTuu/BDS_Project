@@ -34,6 +34,20 @@ namespace Model.Dao
             return db.Accounts.SingleOrDefault(x => x.UserName == userName);
         }
 
+        public int InsertMenuLv1(MenuLv1 entity)
+        {
+            db.MenuLv1.Add(entity);
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return entity.MenuLv1ID;
+        }
+
         public int Login(string userName, string password)
         {
             var result = db.Accounts.SingleOrDefault(x => x.UserName == userName);
