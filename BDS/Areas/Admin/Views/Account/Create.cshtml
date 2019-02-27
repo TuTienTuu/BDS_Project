@@ -109,13 +109,16 @@
                             <div class="row">
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-4" })
-                                    <div class=" col-md-4" style="display:inline-block;">
-                                        @Html.RadioButtonFor(model => model.Gender, true, new { htmlAttributes = new { @class = "form-control" } })
-                                        <span>Nam</span>
-                                    </div>
-                                    <div class=" col-md-4" style="display:inline-block;">
-                                        @Html.RadioButtonFor(model => model.Gender, false, new { htmlAttributes = new { @class = "form-control" } })
-                                        <span>Nữ</span>
+                                    <div class=" col-md-8">
+                                        @Html.DropDownListFor(model =>model.AccountStatus,new SelectList(
+                                      new[]{
+                                          new {Value ="", Text="Chọn giới tính"},
+                                          new {Value ="true", Text="Nam"},
+                                          new {Value ="false", Text="Nữ"},
+                                          },
+                                      "Value",
+                                        "Text"
+                                  ))
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +126,7 @@
                             <div class="row">
                                 <div class="form-group">
                                     <div class="col-md-offset-2  col-md-8">
-                                        <input type="submit" value="Create" class="btn btn-default" />
+                                        <input type="submit" value="Tạo" class="btn btn-default" />
                                     </div>
                                 </div>
                             </div>

@@ -26,7 +26,7 @@ namespace BDS.Areas.Admin.Controllers
                 var result = dao.Login(model.userName, Encryptor.SHA256(model.password + salt).ToString());
                 if (result == 1)
                 {
-                    var user = dao.GetById(model.userName);
+                    var user = dao.GetAccountByUserName(model.userName);
                     var userSession = new UserLogin();
                     userSession.UserName = user.UserName;
                     userSession.Password = user.Password;

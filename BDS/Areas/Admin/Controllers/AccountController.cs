@@ -17,9 +17,11 @@ namespace BDS.Areas.Admin.Controllers
     {
         public DBModel db = new DBModel();
         // GET: Admin/ccount
-        public ActionResult Index()
+        public ActionResult Index(int page =1, int pageSize = 1)
         {
-            return View();
+            UserDao dao = new UserDao();
+            var account = dao.ListAccount_Paging(page, pageSize);
+            return View(account);
         }
 
         [HttpGet]
@@ -27,6 +29,13 @@ namespace BDS.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult Update(string userName)
+        {
+            var model = new UserDao().GetAccountByUserName(userName);
+            return View(model);
+        }
+
         [HttpPost]
         public ActionResult Create(AccountModel account, Salt salt, string rePassword)
         {

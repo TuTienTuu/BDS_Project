@@ -62,3 +62,7 @@ D:\BDS\Model\bin\Debug\PagedList.dll
 D:\BDS\Model\bin\Debug\PagedList.Mvc.dll
 D:\BDS\Model\bin\Debug\PagedList.xml
 D:\BDS\Model\bin\Debug\PagedList.Mvc.xml
+E:\BDS_New\Model\bin\Debug\PagedList.dll
+E:\BDS_New\Model\bin\Debug\PagedList.Mvc.dll
+E:\BDS_New\Model\bin\Debug\PagedList.xml
+E:\BDS_New\Model\bin\Debug\PagedList.Mvc.xml

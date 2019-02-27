@@ -162,3 +162,5 @@ D:\BDS\BDS.Tests\obj\Debug\BDS.Tests.dll
 D:\BDS\BDS.Tests\obj\Debug\BDS.Tests.pdb
 D:\BDS\BDS.Tests\bin\Debug\PagedList.dll
 D:\BDS\BDS.Tests\bin\Debug\PagedList.xml
+E:\BDS_New\BDS.Tests\bin\Debug\PagedList.dll
+E:\BDS_New\BDS.Tests\bin\Debug\PagedList.xml

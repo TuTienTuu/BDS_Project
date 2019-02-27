@@ -17,6 +17,11 @@ namespace Model.Dao
             db = new DBModel();
         }
         //Account
+        public IEnumerable<Account> ListAccount_Paging(int page = 1, int pageSize = 1)
+        {
+
+            return db.Accounts.OrderByDescending(x => x.CreatedTime).ToPagedList(page, pageSize);
+        }
         public string Insert(Account entity)
         {
             db.Accounts.Add(entity);
@@ -32,9 +37,26 @@ namespace Model.Dao
             return entity.UserName;
         }
 
-        public Account GetById(string userName)
+        public Account GetAccountByUserName(string userName)
         {
-            return db.Accounts.SingleOrDefault(x => x.UserName == userName);
+            return db.Accounts.FirstOrDefault(x => x.UserName == userName);
+        }
+
+        public bool DeleteAccount(string userName)
+        {
+            try
+            {
+                var model = db.Accounts.Find(userName);
+                db.Accounts.Remove(model);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
         }
 
         //MenuLV1

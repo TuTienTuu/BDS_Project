@@ -870,6 +870,7 @@
     <Content Include="Areas\Admin\Views\News\Create.cshtml" />
     <Content Include="Content\admin\js\plugin\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="Content\admin\js\plugin\ckfinder\userfiles\.htaccess" />
+    <Content Include="Areas\Admin\Views\Account\Update.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
