@@ -29,10 +29,10 @@ namespace BDS.Areas.Admin.Controllers
         {
             return View();
         }
-
-        public ActionResult Update(string userName)
+        [HttpGet]
+        public ActionResult Update(string UserName)
         {
-            var model = new UserDao().GetAccountByUserName(userName);
+            var model = new UserDao().GetAccountByUserName(UserName);
             return View(model);
         }
 
