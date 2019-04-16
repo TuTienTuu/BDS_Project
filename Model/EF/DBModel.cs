@@ -8,14 +8,12 @@ namespace Model.EF
     public partial class DBModel : DbContext
     {
         public DBModel()
-            : base("name=DBModel1")
+            : base("name=DBModel")
         {
         }
 
         public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<MenuLv1> MenuLv1 { get; set; }
-        public virtual DbSet<MenuLv2> MenuLv2 { get; set; }
-        public virtual DbSet<MenuLv3> MenuLv3 { get; set; }
+        public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<NewsType> NewsTypes { get; set; }
         public virtual DbSet<Project> Projects { get; set; }

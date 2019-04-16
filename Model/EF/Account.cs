@@ -22,33 +22,28 @@
         [DisplayName("Tên đăng nhập")]
         public string UserName { get; set; }
 
-        
         [StringLength(255)]
         [DisplayName("Mật khẩu")]
         public string Password { get; set; }
 
         [StringLength(255)]
-        [DisplayName("Họ và tên")]
+        [DisplayName("Họ tên")]
         public string FullName { get; set; }
 
         [DisplayName("Ngày sinh")]
-        [DataType(DataType.Date,ErrorMessage ="Vui lòng chọn ngày sinh")]
         public DateTime? DateOfBirth { get; set; }
 
         [DisplayName("Giới tính")]
         public bool? Gender { get; set; }
 
+        [DisplayName("Thời gian tạo")]
         public DateTime? CreatedTime { get; set; }
 
         [StringLength(255)]
-        [Required]
-        [DataType(DataType.EmailAddress,ErrorMessage ="Vui lòng nhập Email đúng định dạng")]
         public string Email { get; set; }
 
-        [DisplayName("Số điện thoại")]
         [StringLength(20)]
-        [Required]
-        [DataType(DataType.PhoneNumber,ErrorMessage ="Vui lòng nhập số điện thoại đúng")]
+        [DisplayName("Số điện thoại")]
         public string Mobi { get; set; }
 
         [StringLength(500)]

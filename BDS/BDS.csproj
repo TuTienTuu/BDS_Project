@@ -111,6 +111,7 @@
     <Content Include="Content\admin\dist\css\style.css" />
     <Content Include="Content\admin\dist\js\sb-admin-2.js" />
     <Content Include="Content\admin\dist\js\sb-admin-2.min.js" />
+    <Content Include="Content\admin\js\controller\scripts.js" />
     <Content Include="Content\admin\js\plugin\ckeditor\adapters\jquery.js" />
     <Content Include="Content\admin\js\plugin\ckeditor\build-config.js" />
     <Content Include="Content\admin\js\plugin\ckeditor\ckeditor.js" />
@@ -1097,6 +1098,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\download.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
@@ -1155,14 +1157,9 @@
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuLevel1\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuLevel1\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuLevel1\Update.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuLevel2\Create.cshtml" />
     <Content Include="Areas\Admin\Views\News\Create.cshtml" />
     <Content Include="Content\admin\js\plugin\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="Content\admin\js\plugin\ckfinder\userfiles\.htaccess" />
-    <Content Include="Areas\Admin\Views\Account\Update.cshtml" />
     <Content Include="Content\admin\js\plugin\ckeditor\CHANGES.md" />
     <Content Include="Content\admin\js\plugin\ckeditor\LICENSE.md" />
     <Content Include="Content\admin\js\plugin\ckeditor\plugins\scayt\LICENSE.md" />
@@ -1177,6 +1174,8 @@
     <Content Include="Content\admin\js\plugin\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Content\admin\js\plugin\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Content\admin\js\plugin\ckeditor\skins\moono\readme.md" />
+    <Content Include="Areas\Admin\Views\Account\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1192,9 +1191,7 @@
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
-    <Compile Include="Areas\Admin\Controllers\MenuLevel1Controller.cs" />
-    <Compile Include="Areas\Admin\Controllers\MenuLevel2Controller.cs" />
-    <Compile Include="Areas\Admin\Controllers\MenuLevel3Controller.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProjectController.cs" />
@@ -1231,7 +1228,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Areas\Admin\Views\MenuLevel3\" />
     <Folder Include="Areas\Admin\Views\NewsType\" />
     <Folder Include="Areas\Admin\Views\Project\" />
     <Folder Include="Images\admin\" />

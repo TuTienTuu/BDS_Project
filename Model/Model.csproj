@@ -57,13 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao\CategoryDao.cs" />
+    <Compile Include="Dao\MenuDao.cs" />
     <Compile Include="Dao\NewsDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\DBModel.cs" />
-    <Compile Include="EF\MenuLv1.cs" />
-    <Compile Include="EF\MenuLv2.cs" />
-    <Compile Include="EF\MenuLv3.cs" />
+    <Compile Include="EF\Menu.cs" />
     <Compile Include="EF\News.cs" />
     <Compile Include="EF\NewsType.cs" />
     <Compile Include="EF\Project.cs" />

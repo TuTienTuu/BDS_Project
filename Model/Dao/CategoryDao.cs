@@ -20,9 +20,5 @@ namespace Model.Dao
             return db.NewsTypes.Where(x => x.Status == true).ToList();
         }
 
-        public List<MenuLv1> ListMenuLv1()
-        {
-            return db.MenuLv1.Where(x => x.Status == true).ToList();
-        }
     }
 }
