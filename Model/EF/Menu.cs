@@ -28,5 +28,8 @@
 
         [DisplayName("Menu cha")]
         public int? ParentID { get; set; }
+
+        [DisplayName("Thứ tự hiển thị")]
+        public int? DisplayOrder { get; set; }
     }
 }

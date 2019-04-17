@@ -111,6 +111,7 @@
     <Content Include="Content\admin\dist\css\style.css" />
     <Content Include="Content\admin\dist\js\sb-admin-2.js" />
     <Content Include="Content\admin\dist\js\sb-admin-2.min.js" />
+    <Content Include="Content\admin\js\controller\menuController.js" />
     <Content Include="Content\admin\js\controller\scripts.js" />
     <Content Include="Content\admin\js\plugin\ckeditor\adapters\jquery.js" />
     <Content Include="Content\admin\js\plugin\ckeditor\build-config.js" />
@@ -1176,6 +1177,8 @@
     <Content Include="Content\admin\js\plugin\ckeditor\skins\moono\readme.md" />
     <Content Include="Areas\Admin\Views\Account\Update.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Update.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
