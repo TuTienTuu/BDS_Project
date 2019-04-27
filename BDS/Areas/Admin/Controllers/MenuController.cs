@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace BDS.Areas.Admin.Controllers
 {
-    public class MenuController : Controller
+    public class MenuController : BaseController
     {
         // GET: Admin/Menu
         public ActionResult Index(int page = 1, int pageSize = 20)

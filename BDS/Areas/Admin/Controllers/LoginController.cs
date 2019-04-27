@@ -19,19 +19,29 @@ namespace BDS.Areas.Admin.Controllers
 
         public ActionResult Login(LoginModel model, Salt salt)
         {
+            //Kiểm tra đăng nhập
             if (ModelState.IsValid)
             {
-               // string url = Request.UrlReferrer.ToString();
+                //Đăng nhập và mã hóa mật khẩu
                 var dao = new UserDao();
                 var result = dao.Login(model.userName, Encryptor.SHA256(model.password + salt).ToString());
                 if (result == 1)
                 {
+                    //Thêm thông tin vào Session
                     var user = dao.GetAccountByUserName(model.userName);
                     var userSession = new UserLogin();
                     userSession.UserName = user.UserName;
                     userSession.Password = user.Password;
                     Session.Add(Common.CommonConstants.USER_SESSION, userSession);
-                    return RedirectToAction("Index", "Home");
+
+                    //Lấy thông tin của backlink
+                    string backLink = Session[CommonConstants.BACK_LINK].ToString();
+
+                    //Xóa dữ liệu back link
+                    Session.Remove(CommonConstants.BACK_LINK);
+
+                    //Trả về trang trước khi đăng nhập
+                    return Redirect(backLink);
                 }
                 else if (result == 0)
                     ModelState.AddModelError("", "Tài khoản không tồn tại, vui lòng đăng ký hoặc liên hệ Admin!");

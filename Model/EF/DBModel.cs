@@ -18,6 +18,8 @@ namespace Model.EF
         public virtual DbSet<NewsType> NewsTypes { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
 
+        //public virtual DbSet<ProjectType> ProjectTypes { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Account>()

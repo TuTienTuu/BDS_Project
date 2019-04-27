@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace BDS.Areas.Admin.Controllers
 {
-    public class ProjectController : Controller
+    public class ProjectController : BaseController
     {
         // GET: Admin/Project
         public ActionResult Index()

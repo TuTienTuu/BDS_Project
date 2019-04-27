@@ -59,12 +59,14 @@
     <Compile Include="Dao\CategoryDao.cs" />
     <Compile Include="Dao\MenuDao.cs" />
     <Compile Include="Dao\NewsDao.cs" />
+    <Compile Include="Dao\NewsTypeDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\DBModel.cs" />
     <Compile Include="EF\Menu.cs" />
     <Compile Include="EF\News.cs" />
     <Compile Include="EF\NewsType.cs" />
+    <Compile Include="EF\ProjectType.cs" />
     <Compile Include="EF\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
